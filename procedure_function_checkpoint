@@ -1,0 +1,38 @@
+PROCEDURE dot_product (VAR v1,v2 : ARRAY_OF FLOAT;)
+  VAR
+    sum : FLOAT;
+  BEGIN
+    FOR j FROM 0 TO tab1.length-1 DO
+      FOR k FROM 0 TO tab2.length-1 DO
+        sum := v1[j] * v2[k] ;
+      END_FOR
+    END_FOR
+
+  END
+
+ALGORITHM procedure_checkpoint
+
+VAR
+
+  i,j,k : INTEGER;
+  arr1 : ARRAY_OF FLOAT;
+  arr2 : ARRAY_OF FLOAT;
+  ps : FLOAT;
+
+BEGIN
+  write("enter the values of the first vectors");
+  FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+    read(arr1[i]);
+  END_FOR
+  write('enter the values of the second vectors');
+  FOR i FROM 0 TO arr2.length-1 STEP 1  DO
+    read(arr2[i]);
+  END_FOR
+  ps := dot_product(arr1,arr2);
+  IF (ps = 0) THEN
+    write("v1 and v2 are orthogonal");
+  ELSE
+    write("v1 and v2 are not orthogonal);
+  END_IF
+
+END
